@@ -6,6 +6,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Napatwarun.Sr
+ *
+ */
 public class CashWithdraw {
 	private static BigDecimal CURRENT_BALANCE = new BigDecimal("5000");
 	private static final DecimalFormat BALANCE_FORMAT = new DecimalFormat("#,##0.00");
