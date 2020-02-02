@@ -46,8 +46,6 @@ public class MobileNumberUtil {
 			List<String[]> generate = generateTimingAndExpensive(numbers);
 			export(generate);
 		}
-		
-		Set<String> distinct = numbers.stream().collect(Collectors.toSet());
 	}
 
 	private static Integer[] findBetweenOfBound(int intPosition) {
