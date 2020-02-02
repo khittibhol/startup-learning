@@ -48,10 +48,6 @@ public class MobileNumberUtil {
 		}
 		
 		Set<String> distinct = numbers.stream().collect(Collectors.toSet());
-
-		System.out.println(numbers.size());
-		System.out.println(distinct.size());
-
 	}
 
 	private static Integer[] findBetweenOfBound(int intPosition) {
