@@ -19,14 +19,11 @@ public class CalculateExpensiveMobileNumber {
 			int i = 1;
 			String data;
 
-			// System.out.println(b = bin.readLine()); result is String in b
+		
 
 			while ((data = reader.readLine()) != null) {
-
 				System.out.println(i + " : " + data);
-
 				i = i + 1;
-
 			}
 
 		} catch (Exception e) {
