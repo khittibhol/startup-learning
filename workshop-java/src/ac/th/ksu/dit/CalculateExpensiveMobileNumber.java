@@ -16,11 +16,15 @@ public class CalculateExpensiveMobileNumber {
 		BufferedReader reader = new BufferedReader(file);
 		try {
 			// To do write code here.
-			int i = 1;
+//			int i = 1;
 			String data;
+			System.out.println("========= Start for Calculate the expensive by mobile no. ========");
 			while ((data = reader.readLine()) != null) {
-				System.out.println(i + " : " + data);
-				i = i + 1;
+//				System.out.println(i + " : " + data);
+//				i = i + 1;
+				String readData[] = data.split(",");
+				System.out.println("Mobile No.\t: "+readData[0]+"\tTiming : "+readData[1]+"\nExpense : "+readData[2]);
+				System.out.println("=======================================================");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
