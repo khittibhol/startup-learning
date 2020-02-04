@@ -18,14 +18,10 @@ public class CalculateExpensiveMobileNumber {
 			// To do write code here.
 			int i = 1;
 			String data;
-
-		
-
 			while ((data = reader.readLine()) != null) {
 				System.out.println(i + " : " + data);
 				i = i + 1;
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
