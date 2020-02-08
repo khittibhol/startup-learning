@@ -1,16 +1,13 @@
 package ac.th.ksu.dit;
 
 import java.io.BufferedReader;
-import java.util.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 /**
- * @author khittibhol
+ * @author napatwarun
  *
  */
 public class CalculateExpensiveMobileNumber {
@@ -21,18 +18,18 @@ public class CalculateExpensiveMobileNumber {
 		BufferedReader reader = new BufferedReader(file);
 		try {
 			String data;
-			List<String[]> dataExpense = new ArrayList<>();
+
 			Hashtable<String, String[]> table = new Hashtable<>();
 			System.out.println("========= Start for Calculate the expensive by mobile no. ========");
 			while ((data = reader.readLine()) != null) {
 				String readData[] = data.split(",");
-				dataExpense.add(data.split(","));
+
 				if (table.containsKey(readData[0])) {
 					String[] getData = table.get(readData[0]);
 					BigDecimal dTiming = new BigDecimal(getData[0]);
-					BigDecimal timing = dTiming.add(new BigDecimal(readData[0]));
+					BigDecimal timing = dTiming.add(new BigDecimal(readData[1]));
 					BigDecimal dExpense = new BigDecimal(getData[1]);
-					BigDecimal expense = dExpense.add(new BigDecimal(readData[1]));
+					BigDecimal expense = dExpense.add(new BigDecimal(readData[2]));
 
 					table.put(readData[0], new String[] { timing.toPlainString(), expense.toPlainString() });
 				} else {
