@@ -34,12 +34,10 @@ public class CalculateExpensiveMobileNumber {
 					table.put(readData[0], new String[] { timing.toPlainString(), expense.toPlainString() });
 				} else {
 					table.put(readData[0], new String[] { readData[1], readData[2] });
+				}		
 				}
-
-				table.forEach( 
-			            (key,value) -> System.out.println("Telephone Number : " + key + ", \tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 			
-				}
-
+			table.forEach( 
+		            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
 			
 			System.out.println("HashTable sizing : " + table.size());
 		} catch (Exception e) {
