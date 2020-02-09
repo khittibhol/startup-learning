@@ -51,5 +51,12 @@ public class CalculateExpensiveMobileNumber {
 
 		System.exit(0);
 	}
+	
+	private static void result(Map<String, String[]> expenses) {
+		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
+
+		System.out.println("Total Mobile No.\t: "+expenses.size());
+		System.out.println("Completed!");
+	}
 
 }
