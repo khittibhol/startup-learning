@@ -60,9 +60,13 @@ public class CalculateExpensiveMobileNumber {
 		 System.out.println("\nSorted Map......");
 		  Map treeMap = new TreeMap(expenses);
 		  treeMap.forEach((key,value) -> {
-			 System.out.println("Key : " +key);
+			 System.out.print("Key : " +key);
+			 
+			 String[] elements = (String[]) value;
+			 System.out.print("\tTiming : " +elements[0]);
+			 System.out.println("\tExpense : " +elements[1]);
 			 });
-		  }
+//		  }
 //		expenses.forEach( 
 //	            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
 //		   if (expenses.isEmpty()) { 
@@ -76,4 +80,5 @@ public class CalculateExpensiveMobileNumber {
 		System.out.println("Completed!");
 
 
-}
+}}
+
