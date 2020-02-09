@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author napatwarun
@@ -22,7 +23,7 @@ public class CalculateExpensiveMobileNumber {
 
 //			Hashtable<String, String[]> table = new Hashtable<>();
 			HashMap<String,String[]> table =new HashMap<>();
-			System.out.println("========= Start for Calculate the expensive by mobile no. ========");
+//			System.out.println("========= Start for Calculate the expensive by mobile no. ========");
 			while ((data = reader.readLine()) != null) {
 				String readData[] = data.split(",");
 
@@ -56,15 +57,20 @@ public class CalculateExpensiveMobileNumber {
 
 	private static void result(Map<String, String[]> expenses) {
 		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
+		 System.out.println("\nSorted Map......");
+		  Map treeMap = new TreeMap(expenses);
+		  for (Map.Entry entry : treeMap.entrySet()) {
+		   System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+		  }
 //		expenses.forEach( 
 //	            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
-		   if (expenses.isEmpty()) { 
-	            System.out.println("map is empty"); 
-	        } 
-	  
-	        else { 
-	            System.out.println(expenses); 
-	        } 
+//		   if (expenses.isEmpty()) { 
+//	            System.out.println("map is empty"); 
+//	        } 
+//	  
+//	        else { 
+//	            System.out.println(expenses); 
+//	        } 
 		System.out.println("Total Mobile No.\t: "+expenses.size());
 		System.out.println("Completed!");
 	}
