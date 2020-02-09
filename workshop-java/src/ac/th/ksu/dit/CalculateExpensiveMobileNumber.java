@@ -38,10 +38,11 @@ public class CalculateExpensiveMobileNumber {
 					table.put(readData[0], new String[] { readData[1], readData[2] });
 				}		
 				}
-			table.forEach( 
-		            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
-			
-			System.out.println("HashTable sizing : " + table.size());
+//			table.forEach( 
+//		            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
+//			
+//			System.out.println("HashTable sizing : " + table.size());
+			result(table);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -52,9 +53,18 @@ public class CalculateExpensiveMobileNumber {
 		System.exit(0);
 	}
 	
+
 	private static void result(Map<String, String[]> expenses) {
 		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
-
+//		expenses.forEach( 
+//	            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
+		   if (expenses.isEmpty()) { 
+	            System.out.println("map is empty"); 
+	        } 
+	  
+	        else { 
+	            System.out.println(expenses); 
+	        } 
 		System.out.println("Total Mobile No.\t: "+expenses.size());
 		System.out.println("Completed!");
 	}
