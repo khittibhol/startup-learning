@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author napatwarun
@@ -19,7 +20,8 @@ public class CalculateExpensiveMobileNumber {
 		try {
 			String data;
 
-			Hashtable<String, String[]> table = new Hashtable<>();
+//			Hashtable<String, String[]> table = new Hashtable<>();
+			HashMap<String,String[]> table =new HashMap<>();
 			System.out.println("========= Start for Calculate the expensive by mobile no. ========");
 			while ((data = reader.readLine()) != null) {
 				String readData[] = data.split(",");
