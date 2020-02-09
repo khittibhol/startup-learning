@@ -59,8 +59,9 @@ public class CalculateExpensiveMobileNumber {
 		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
 		 System.out.println("\nSorted Map......");
 		  Map treeMap = new TreeMap(expenses);
-		  for (Map.Entry entry : treeMap.entrySet()) {
-		   System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+		  treeMap.forEach((key,value) -> {
+			 System.out.println("Key : " +key);
+			 });
 		  }
 //		expenses.forEach( 
 //	            (key,value) -> System.out.println("Telephone Number : " + key + ", \t\tTiming : " + value[0]+ ", \t\tExpense : " + value[1])); 	
@@ -73,6 +74,6 @@ public class CalculateExpensiveMobileNumber {
 //	        } 
 		System.out.println("Total Mobile No.\t: "+expenses.size());
 		System.out.println("Completed!");
-	}
+
 
 }
