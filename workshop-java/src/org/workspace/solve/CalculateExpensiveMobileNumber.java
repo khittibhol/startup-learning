@@ -8,6 +8,8 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.workspace.model.ExpensiveMobileModel;
+
 /**
  * @author khittibhol
  *
@@ -16,7 +18,7 @@ public class CalculateExpensiveMobileNumber {
 
 	private static final DecimalFormat EXPENSE_FORMAT = new DecimalFormat("#,##0.00");
 	public static void main(String[] args) throws IOException {
-		Map<String, String[]> expenses = new HashMap<>();
+		Map<String, ExpensiveMobileModel> expenses = new HashMap<>();
 
 		FileReader file = new FileReader("resources/number.txt");
 		BufferedReader reader = new BufferedReader(file);
@@ -24,16 +26,15 @@ public class CalculateExpensiveMobileNumber {
 			String str;
 			while ((str = reader.readLine()) != null) {
 				String[] element = str.split(",");
-				String number = element[0];
-				String timing = element[1];
-				String expense = element[2];
+				ExpensiveMobileModel expensive = new ExpensiveMobileModel(element[0], new BigDecimal(element[1]), new BigDecimal(element[2]));
 				
-				if (expenses.containsKey(element[0])) {
-					String[] summary = expenses.get(number);
-					timing = new BigDecimal(summary[0]).add(new BigDecimal(timing)).toPlainString();
-					expense = new BigDecimal(summary[1]).add(new BigDecimal(expense)).toPlainString();
+				if (expenses.containsKey(expensive.getMobile())) {
+					ExpensiveMobileModel summary = expenses.get(expensive.getMobile());
+					summary.setTiming(summary.getTiming().add(expensive.getTiming()));
+					summary.setExpense(summary.getExpense().add(expensive.getExpense()));
+					expensive = summary;
 				}
-				expenses.put(number, new String[] { timing, expense });
+				expenses.put(expensive.getMobile(), expensive);
 			}
 
 			result(expenses);
@@ -47,19 +48,13 @@ public class CalculateExpensiveMobileNumber {
 		System.exit(0);
 	}
 	
-	private static void result(Map<String, String[]> expenses) {
+	private static void result(Map<String, ExpensiveMobileModel> expenses) {
 		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
 		
 		expenses.entrySet().stream()
 			.sorted(Map.Entry.comparingByKey())
 			.forEachOrdered(exp -> {
-	        	String format = "Mobile No.\t: %s\tTiming\t: %s\nExpense\t: %s";
-				
-				String[] element = exp.getValue();
-				BigDecimal expense = new BigDecimal(element[1]);
-				
-				System.out.println(String.format(format, exp.getKey(), calcTiming(element[0]), EXPENSE_FORMAT.format(expense)));
-				System.out.println("=============================================================");
+	        	resultFormat(exp.getValue());
         });
 
 		System.out.println("Total Mobile No.\t: "+expenses.size());
@@ -72,6 +67,14 @@ public class CalculateExpensiveMobileNumber {
 		long mm = Long.parseLong(timing) % 60;
 		
 		return String.format(hhmm, hh, mm);
+	}
+	
+	private static void resultFormat(ExpensiveMobileModel expensive) {		
+		System.out.println("Mobile No.	: "+expensive.getMobile());
+		System.out.println("Timing		: "+calcTiming(expensive.getTiming().toPlainString()));
+		System.out.println("Expense		: "+EXPENSE_FORMAT.format(expensive.getExpense()));
+		System.out.println("=============================================================");
+		
 	}
 	
 }
