@@ -12,10 +12,7 @@ public class ExpensiveMobileModel {
 	private BigDecimal timing;
 	private BigDecimal expense;
 
-	public ExpensiveMobileModel() {
-		super();
-	}
-	
+
 	public ExpensiveMobileModel(String mobile, BigDecimal timing, BigDecimal expense) {
 		super();
 		this.mobile = mobile;

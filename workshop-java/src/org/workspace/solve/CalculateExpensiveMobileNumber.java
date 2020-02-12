@@ -29,7 +29,7 @@ public class CalculateExpensiveMobileNumber {
 				String[] element = str.split(",");
 				ExpensiveMobileModel expensive = new ExpensiveMobileModel(element[0], new BigDecimal(element[1]), new BigDecimal(element[2]));
 				
-				if (expenses.containsKey(expensive.getMobile())) {
+				if (expenses.containsKey(expensive.getMobile())) { //หาค่าที่มีอยู่แล้ว
 					ExpensiveMobileModel summary = expenses.get(expensive.getMobile());
 					summary.setTiming(summary.getTiming().add(expensive.getTiming()));
 					summary.setExpense(summary.getExpense().add(expensive.getExpense()));
@@ -52,7 +52,7 @@ public class CalculateExpensiveMobileNumber {
 	private static void result(Map<String, ExpensiveMobileModel> expenses) {
 		System.out.println("====== Start for Calculate the expensive by mobile no. ======");
 		
-		expenses.entrySet().stream()
+		expenses.entrySet().stream() // stream เอาไว้ใช้จัดการ data collection เช่น loop
 			.sorted(Map.Entry.comparingByKey())
 			.forEachOrdered(exp -> {
 	        	resultFormat(exp.getValue());
