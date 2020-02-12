@@ -62,17 +62,17 @@ public class CalculateExpensiveMobileNumber {
 		System.out.println("Completed!");
 	}
 	
-	private static String calcTiming(String timing) {
+	private static String calcTiming(long timing) {
 		String hhmm = "%s Hour %s Minute";
-		long hh = Long.parseLong(timing) / 60;
-		long mm = Long.parseLong(timing) % 60;
+		long hh = timing / 60;
+		long mm = timing % 60;
 		
 		return String.format(hhmm, hh, mm);
 	}
 	
 	private static void resultFormat(ExpensiveMobileModel expensive) {		
 		System.out.println("Mobile No.	: "+expensive.getMobile().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3"));
-		System.out.println("Timing		: "+calcTiming(expensive.getTiming().toPlainString()));
+		System.out.println("Timing		: "+calcTiming(expensive.getTiming().longValue()));
 		System.out.println("Expense		: "+EXPENSE_FORMAT.format(expensive.getExpense()));
 		System.out.println("=============================================================");
 		
